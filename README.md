@@ -36,42 +36,27 @@
 
 - macOS 14.0 (Sonoma) or later
 - Apple Silicon Mac (M1 / M2 / M3 / M4 / M5 series)
-- No Xcode installation required — only the Swift toolchain (`/usr/bin/swift`)
 
-## Building
+## Installation
+
+1. Download `MacFanControl-vX.X.X.zip` from [Releases](../../releases)
+2. Unzip and move `MacFanControl.app` to `/Applications/`
+3. Launch the app (right-click → Open on first launch since it's ad-hoc signed)
+4. Click **"Install helper"** in the status bar when prompted — this installs the privileged daemon needed for fan control
+
+Temperature monitoring works immediately. Fan control becomes available after the helper is installed.
+
+## Building from Source
+
+Requires the Swift toolchain (`/usr/bin/swift`), no Xcode needed.
 
 ```bash
-# Build the app bundle (release, ad-hoc signed)
 bash scripts/build.sh
 ```
 
 The app bundle is assembled at `build/MacFanControl.app`.
 
-## Installation
-
-### 1. Install the privileged helper
-
-The helper daemon runs as root and handles all fan write operations. Install it once:
-
-```bash
-sudo bash scripts/install-helper.sh
-```
-
-This copies the helper binary to `/Library/PrivilegedHelperTools/` and registers a launchd service.
-
-### 2. Launch the app
-
-```bash
-open build/MacFanControl.app
-```
-
-Or copy `build/MacFanControl.app` to `/Applications/`.
-
-### Uninstalling the helper
-
-```bash
-sudo bash scripts/uninstall-helper.sh
-```
+Helper install/uninstall scripts are available in `scripts/` for development, but normal users don't need them — the app handles installation via its UI.
 
 ## Usage
 

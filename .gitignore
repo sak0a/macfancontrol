@@ -1,0 +1,25 @@
+# Swift / SPM
+.build/
+.swiftpm/
+Package.resolved
+
+# Build output
+build/
+
+# Xcode (just in case)
+*.xcodeproj
+*.xcworkspace
+xcuserdata/
+DerivedData/
+
+# macOS
+.DS_Store
+*.swp
+*~
+
+# Spike compiled binaries
+spike/*.o
+/tmp/
+
+# Claude Code
+.claude/

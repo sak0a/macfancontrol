@@ -97,6 +97,10 @@ struct MenuBarContent: View {
         }
         .keyboardShortcut("o")
 
+        Button("Check for Updates…") {
+            UpdateChecker.checkForUpdates(manual: true)
+        }
+
         Button("Quit MacFanControl") {
             AppDelegate.shouldReallyQuit = true
             NSApp.terminate(nil)

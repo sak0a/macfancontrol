@@ -102,6 +102,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
             self, selector: #selector(windowWillClose(_:)),
             name: NSWindow.willCloseNotification, object: nil
         )
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            UpdateChecker.checkForUpdates()
+        }
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
